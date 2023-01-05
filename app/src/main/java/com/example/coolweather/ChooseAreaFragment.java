@@ -131,22 +131,56 @@ public class ChooseAreaFragment extends Fragment {
             listView.setSelection(0);
             currentLevel = LEVEL_PROVINCE;
         }else {
-            String address = "";
-
+            String address = "http://guolin.tech/api/china";
+            queryFromServer(address, "province");
         }
     }
     /**
      * 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询
      */
     private void queryCities(){
-
+        titleText.setText(selectedProvince.getProvinceName());
+        backButton.setVisibility(View.VISIBLE);
+        cityList = DataSupport.where("provinceod = ?", String.valueOf(
+                selectedProvince.getId())).find(City.class);
+        if (cityList.size() > 0){
+            dataList.clear();
+            for (City city : cityList){
+                dataList.add(city.getCityName());
+            }
+            adapter.notifyDataSetChanged();
+            listView.setSelection(0);
+            currentLevel = LEVEL_CITY;
+        }else {
+            int provinceCode = selectedProvince.getProvinceCode();
+            String address = "http://guolin.tech/api/china/" + provinceCode;
+            queryFromServer(address,"city");
+        }
     }
 
     /**
      * 查询选中市内所有的县，优先从数据库查询吗，如果没有查询到再去服务器上查询
      */
     private void queryCounties(){
-
+        titleText.setText(selectedCity.getCityName());
+        backButton.setVisibility(View.VISIBLE);
+        countyList = DataSupport.where("cityid = ?", String.valueOf(
+                selectedCity.getId())).find(County.class);
+        if (countyList.size() > 0){
+            dataList.clear();
+            for (County county : countyList){
+                dataList.add(county.getCountyName());
+            }
+            adapter.notifyDataSetChanged();
+            listView.setSelection(0);
+            currentLevel = LEVEL_COUNTY;
+        }else {
+            int provinceCode = selectedProvince.getProvinceCode();
+            int cityCode = selectedCity.getCityCode();
+            String address = "http://guolin.tech/api/china/" + provinceCode + "/"
+                    + cityCode;
+            queryFromServer(address, "county");
+        }
     }
 
     /**
