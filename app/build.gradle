@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "27.0.1"
+    buildToolsVersion "33.0.1"
     defaultConfig {
         applicationId "com.example.coolweather"
         minSdkVersion  19
@@ -23,17 +23,17 @@ android {
 }
 
 dependencies {
-    compile  fileTree(dir: 'libs', includes: ['*.jar'])
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
 
-    testCompile  'junit:junit:4.13.2'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'org.litepal.android:core:3.0.0'
-    compile 'com.squareup.okhttp3:okhttp:3.10.0'
-    compile 'com.google.code.gson:gson:2.8.6'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'org.litepal.android:core:3.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
 }
