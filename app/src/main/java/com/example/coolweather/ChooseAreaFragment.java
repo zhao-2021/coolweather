@@ -1,7 +1,12 @@
 package com.example.coolweather;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +16,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.example.coolweather.db.City;
 import com.example.coolweather.db.County;
@@ -72,6 +74,7 @@ public class ChooseAreaFragment extends Fragment {
      */
     private int currentLevel;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -141,8 +144,7 @@ public class ChooseAreaFragment extends Fragment {
     private void queryCities(){
         titleText.setText(selectedProvince.getProvinceName());
         backButton.setVisibility(View.VISIBLE);
-        cityList = DataSupport.where("provinceod = ?", String.valueOf(
-                selectedProvince.getId())).find(City.class);
+        cityList = DataSupport.where("provinceod = ?", String.valueOf(selectedProvince.getId())).find(City.class);
         if (cityList.size() > 0){
             dataList.clear();
             for (City city : cityList){
