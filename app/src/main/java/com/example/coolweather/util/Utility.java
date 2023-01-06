@@ -46,6 +46,7 @@ public class Utility {
                     city.setProvinceId(provinceId);
                     city.save();
                 }
+                return true;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
