@@ -14,7 +14,7 @@ gradle-wrapper.properties
 ``` 
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-bin.zip
 ```
-
+---
 报错：
 A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
 
@@ -24,7 +24,8 @@ gradle.properties文件中添加
 ```
 android.enableJetifier=true
 ```
---
+-
+
 报错：
 style attribute 'android:attr/dialogCornerRadius' not found.
 
