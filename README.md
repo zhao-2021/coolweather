@@ -22,7 +22,7 @@ http://api.muvip.cn/api/bing
 http://guolin.tech/api/bing_pic
 
 https://blog.csdn.net/chenxihanhui/article/details/113115019
----
+***
 报错：
 A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
 
