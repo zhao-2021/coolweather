@@ -17,17 +17,21 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-bin.zip
 
 报错：
 A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
+
 解决方法：
 gradle.properties文件中添加
 android.enableJetifier=true
 
 报错：
 style attribute 'android:attr/dialogCornerRadius' not found.
+
 解决方法：
 File --> Project Structure --> Modules --> Properties --> Compile Sdk version
+
 或者修改 app --> build.gradle
 compileSdk 29
 buildToolsVersion '28.0.3'
+
 CSDN解决方法
 https://blog.csdn.net/weixin_43465451/article/details/83185112
 
@@ -47,3 +51,9 @@ GoldfishAddressSpaceHostMemoryAllocator: ioctl_ping failed for device_type=5, re
 
 Glide.with(WeatherActivity.this).load(bingPic).into(bingPicImg);
 Glide.with(上下文).load(api地址).into(需要传入的View);
+
+
+报错
+android.support.v4.widget.SwipeRefreshLayout
+
+https://blog.csdn.net/weixin_43873198/article/details/108895904
