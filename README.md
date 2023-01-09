@@ -24,8 +24,7 @@ gradle.properties文件中添加
 ```
 android.enableJetifier=true
 ```
--
-
+***
 报错：
 style attribute 'android:attr/dialogCornerRadius' not found.
 
