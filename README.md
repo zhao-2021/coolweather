@@ -67,3 +67,28 @@ android.support.v4.widget.SwipeRefreshLayout
 
 https://blog.csdn.net/weixin_43873198/article/details/108895904
 ***
+
+```xml
+<fragment android:id="@+id/choose_area_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.coolweather.ChooseAreaFragment"
+            android:layout_gravity="end"
+            />
+```
+右边：
+android:layout_gravity="end"
+左边：
+android:layout_gravity="start"
+
+android:gravity：是对view控件本身来说的，是用来设置view本身的内容应该显示在view的什么位置，默认值是左侧。也可以用来设置布局中的控件位置
+
+android:layout_gravity：是相对于包含改元素的父元素来说的，设置该元素在父元素的什么位置；
+
+
+读取数据
+```
+SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+String weatherString = prefs.getString("weather", null);
+```
+
