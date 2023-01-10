@@ -71,11 +71,10 @@ https://blog.csdn.net/weixin_43873198/article/details/108895904
 
 ```xml
 <fragment android:id="@+id/choose_area_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="com.example.coolweather.ChooseAreaFragment"
-            android:layout_gravity="end"
-            />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="com.example.coolweather.ChooseAreaFragment"
+    android:layout_gravity="end" />
 ```
 右边：
 android:layout_gravity="end"

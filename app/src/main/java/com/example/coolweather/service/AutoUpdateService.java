@@ -61,9 +61,9 @@ public class AutoUpdateService extends Service {
 
                 final String bingPic =  "http://api.muvip.cn/api/bing";
                 Log.i("zhaodl","bingPic=++="+bingPic);
-                SharedPreferences.Editor editor = PreferenceManager.
-                        getDefaultSharedPreferences(
-                                AutoUpdateService.this).edit();
+                SharedPreferences.Editor editor = PreferenceManager
+                        .getDefaultSharedPreferences(AutoUpdateService.this)
+                        .edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
             }
@@ -94,8 +94,9 @@ public class AutoUpdateService extends Service {
                     Log.i("zhaodl",  "responseText====++=====" + responseText);
                     Weather weather = Utility.handleWeatherResponse(responseText);
                     if (weather != null && "ok".equals(weather.status)){
-                        SharedPreferences.Editor editor = PreferenceManager.
-                                getDefaultSharedPreferences(AutoUpdateService.this).edit();
+                        SharedPreferences.Editor editor = PreferenceManager
+                                .getDefaultSharedPreferences(AutoUpdateService.this)
+                                .edit();
                         editor.putString("weather", responseText);
                         editor.apply();
                     }

@@ -111,8 +111,9 @@ public class WeatherActivity extends AppCompatActivity {
         String bingPic = prefs.getString("bing_pic", null);
         Log.i("zhaodl","bingPic=-="+bingPic);
         if (bingPic != null){
-            Glide.with(WeatherActivity.this).
-                    load(bingPic).into(bingPicImg);
+            Glide.with(WeatherActivity.this)
+                    .load(bingPic)
+                    .into(bingPicImg);
         }else {
             loadBingPic1();
         }
@@ -134,15 +135,17 @@ public class WeatherActivity extends AppCompatActivity {
                 final String bingPic =  "http://api.muvip.cn/api/bing";
                 Log.i("zhaodl","bingPic==="+bingPic);
 
-                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(
-                        WeatherActivity.this).edit();
+                SharedPreferences.Editor editor = PreferenceManager
+                        .getDefaultSharedPreferences(WeatherActivity.this)
+                        .edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(WeatherActivity.this).
-                                load(bingPic).into(bingPicImg);
+                        Glide.with(WeatherActivity.this)
+                                .load(bingPic)
+                                .into(bingPicImg);
                     }
                 });
             }
@@ -154,16 +157,17 @@ public class WeatherActivity extends AppCompatActivity {
      */
     private void loadBingPic1() {
         String requestBingPic = "http://api.muvip.cn/api/bing";
-        SharedPreferences.Editor editor = PreferenceManager.
-                getDefaultSharedPreferences(
-                        WeatherActivity.this).edit();
+        SharedPreferences.Editor editor = PreferenceManager
+                .getDefaultSharedPreferences(WeatherActivity.this)
+                .edit();
         editor.putString("bing_pic", requestBingPic);
         editor.apply();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Glide.with(WeatherActivity.this).
-                        load(requestBingPic).into(bingPicImg);
+                Glide.with(WeatherActivity.this)
+                        .load(requestBingPic)
+                        .into(bingPicImg);
             }
         });
     }
@@ -182,8 +186,10 @@ public class WeatherActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(WeatherActivity.this,
-                                "获取天气信息失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(
+                                WeatherActivity.this,
+                                "获取天气信息失败",
+                                Toast.LENGTH_SHORT).show();
                         swipeRefresh.setRefreshing(false);
                     }
                 });
@@ -205,11 +211,12 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.putString("weather", responseText);
                             editor.apply();
                             showWeatherInfo(weather);
-                            Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
+                            Intent intent = new Intent(
+                                    WeatherActivity.this, AutoUpdateService.class);
                             startService(intent);
                         }else{
                             Toast.makeText(WeatherActivity.this,
-                                    "获取天气信息失败",Toast.LENGTH_SHORT).show();
+                                    "获取天气信息失败", Toast.LENGTH_SHORT).show();
                         }
                         swipeRefresh.setRefreshing(false);
                     }
