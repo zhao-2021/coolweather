@@ -21,6 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.coolweather.gson.Forecast;
 import com.example.coolweather.gson.Weather;
 import com.example.coolweather.service.AutoUpdateService;
@@ -93,6 +94,11 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 requestWeather(weatherId);
+                Glide.with(WeatherActivity.this)
+                        .load("http://api.muvip.cn/api/bing")
+                        .skipMemoryCache(true)//不使用内存缓存
+                        .diskCacheStrategy(DiskCacheStrategy.NONE) // 不使用磁盘缓存
+                        .into(bingPicImg);
             }
         });
         navButton.setOnClickListener(new View.OnClickListener() {
@@ -103,9 +109,10 @@ public class WeatherActivity extends AppCompatActivity {
         });
         
         String bingPic = prefs.getString("bing_pic", null);
+        Log.i("zhaodl","bingPic=-="+bingPic);
         if (bingPic != null){
-            loadBingPic();
-            Glide.with(this).load(bingPic).into(bingPicImg);
+            Glide.with(WeatherActivity.this).
+                    load(bingPic).into(bingPicImg);
         }else {
             loadBingPic1();
         }
@@ -127,9 +134,8 @@ public class WeatherActivity extends AppCompatActivity {
                 final String bingPic =  "http://api.muvip.cn/api/bing";
                 Log.i("zhaodl","bingPic==="+bingPic);
 
-                SharedPreferences.Editor editor = PreferenceManager.
-                        getDefaultSharedPreferences(
-                                WeatherActivity.this).edit();
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(
+                        WeatherActivity.this).edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
                 runOnUiThread(new Runnable() {
