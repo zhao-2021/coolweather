@@ -95,6 +95,14 @@ String weatherString = prefs.getString("weather", null);
 https://blog.csdn.net/ZHXLXH/article/details/87940293
 
 # PROBLEM
-Glide加载相同URL时由于缓存无法更新图片的问题:
+问题1：Glide加载相同URL时由于缓存无法更新图片
 
+解决方法：
+``` 
+Glide.with(WeatherActivity.this)
+    .load("http://api.muvip.cn/api/bing")
+    .skipMemoryCache(true)//不使用内存缓存
+    .diskCacheStrategy(DiskCacheStrategy.NONE) // 不使用磁盘缓存
+    .into(bingPicImg);
+```
 https://blog.csdn.net/zhifanxu/article/details/78981459
