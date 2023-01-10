@@ -23,7 +23,7 @@ http://guolin.tech/api/bing_pic
 
 https://blog.csdn.net/chenxihanhui/article/details/113115019
 ***
-# 报错
+# ERROR
 报错：
 A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
 
@@ -94,7 +94,7 @@ String weatherString = prefs.getString("weather", null);
 ```
 https://blog.csdn.net/ZHXLXH/article/details/87940293
 
-# 问题
+# PROBLEM
 Glide加载相同URL时由于缓存无法更新图片的问题:
 
 https://blog.csdn.net/zhifanxu/article/details/78981459
