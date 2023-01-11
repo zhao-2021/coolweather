@@ -85,7 +85,6 @@ android:gravity：是对view控件本身来说的，是用来设置view本身的
 
 android:layout_gravity：是相对于包含改元素的父元素来说的，设置该元素在父元素的什么位置；
 
-
 读取数据
 ```
 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -105,7 +104,6 @@ Glide.with(WeatherActivity.this)
     .into(bingPicImg);
 ```
 https://blog.csdn.net/zhifanxu/article/details/78981459
-
 
 # 笔记
 ``` 
@@ -128,7 +126,6 @@ provinceObject.getInt("id")
 ***
 
 复习6.3SharedPreferences储存
-
 
 https://blog.csdn.net/weixin_42292229/article/details/90737346
 
