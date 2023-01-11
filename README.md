@@ -68,7 +68,6 @@ android.support.v4.widget.SwipeRefreshLayout
 
 https://blog.csdn.net/weixin_43873198/article/details/108895904
 ***
-
 ```xml
 <fragment android:id="@+id/choose_area_fragment"
     android:layout_width="match_parent"
