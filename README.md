@@ -105,3 +105,30 @@ Glide.with(WeatherActivity.this)
     .into(bingPicImg);
 ```
 https://blog.csdn.net/zhifanxu/article/details/78981459
+
+
+# 笔记
+``` 
+response = [{"id":1,"name":"北京"},{"id":2,"name":"上海"}]
+```
+[]表示数组，使用JSONArray解析
+
+JSONArray allCounties = new JSONArray(response);
+
+{}表示元素，使用JSONObject解析
+
+JSONObject countyObject = allCounties.getJSONObject(i);
+
+getJSONObject(i)表示第i个元素，遍历获取所有省份
+
+获取键值对：
+provinceObject.getString("name")
+provinceObject.getInt("id")
+
+***
+
+复习6.3SharedPreferences储存
+
+
+https://blog.csdn.net/weixin_42292229/article/details/90737346
+
